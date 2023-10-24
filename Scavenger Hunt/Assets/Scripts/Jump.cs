@@ -5,11 +5,7 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     // strength of the push
-    [Header("Jump Stremgth")]
     public float jumpStrength = 10f;
-
-    [Header("Jump in Midair")]
-    public bool alwaysJumping = false;
 
     private bool canJump;
 
@@ -32,7 +28,7 @@ public class Jump : MonoBehaviour
             canJump = false;
         }
 
-        if ((canJump || alwaysJumping) && Input.GetButton("Jump"))
+        if (canJump && Input.GetButton("Jump"))
         {
             // Apply an instantaneous upwards force
             rigidBody.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
